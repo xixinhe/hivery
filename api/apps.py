@@ -8,25 +8,33 @@ class ApiConfig(AppConfig):
         from .models import Company, People
         print('This is test starting up function')
         Company = self.get_model('Company')
+        People = self.get_model('People')
+        
+        if People.objects.count() > 0:
+            People.objects.all().delete()
+        if Company.objects.count() > 0:
+            Company.objects.all().delete()
 
-        if Company.objects.count() <= 0:
-            with open('./companies.json') as companies_file:
-                companies = json.load(companies_file)
-                for company in companies:
-                    Company(index=company['index'], name=company['company']).save()
-
+        with open('./companies.json') as companies_file:
+            companies = json.load(companies_file)
+            for company in companies:
+                Company(company_id=company['index'], name=company['company']).save()
+        
         print(Company.objects.count())
 
-        # People = self.get_model('People')
+        with open('./people.json') as people_file:
+            peoples = json.load(people_file)
+            for people in peoples:
+                People(
+                    people_id=people['_id'], 
+                    index=people['index'],
+                    guid=people['guid'],
+                    has_died=people['has_died'],
+                    balance=people['balance'],
+                    picture=people['picture'],
+                    age=people['age'],
+                    eyeColor=people['eyeColor'],
+                    name=people['name'],
+                    company_id=people['company_id']).save()
 
-        # if People.objects.count() <= 0:
-        #     with open('./people.json') as people_file:
-        #         peoples = json.load(people_file)
-        #         for people in peoples:
-        #             People(
-        #                 people_id=people['_id'], 
-        #                 index=people['index'],
-        #                 guid=people['guid'],
-        #                 has_died=people['has_died']).save()
-
-        # print(People.objects.all())
+        print(People.objects.count())
