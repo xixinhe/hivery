@@ -7,12 +7,12 @@ def index(self):
     pass
 
 def all_company(request):
-    print(serialize('python', Company.objects.all()))
+    # print(serialize('python', Company.objects.all()))
     return JsonResponse(serialize('python', Company.objects.all()), safe=False)
 
 def all_people(request):
-    print(serialize('python', People.objects.filter(company_id=58)))
-    return JsonResponse(serialize('python', People.objects.filter(company_id=58)), safe=False)
+    # print(serialize('python', People.objects.filter(company_id=58)))
+    return JsonResponse(serialize('python', People.objects.all()), safe=False)
 
 def clear(request):
     Company.objects.all().delete()
