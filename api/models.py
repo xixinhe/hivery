@@ -21,15 +21,11 @@ class People(models.Model):
     company_id = models.IntegerField(default=None, null=True)
     fruit = models.CharField(max_length=200, default=None, null=True)
     vegetable = models.CharField(max_length=200, default=None, null=True)
-    
+    friend = models.CharField(max_length=100, default='', null=True)
+
     def __str__(self):
         return (f'People{{people_id: {self.people_id}, '
         f'index: {self.index},'
         f'guid: {self.guid},'
+        f'friend: {self.friend},'
         f'has_died: {self.has_died},}}')
-
-class Friendship(models.Model):
-    friendship_id = models.AutoField(primary_key=True)
-    self_id = models.ForeignKey(default=0, null=False, to='People', on_delete=models.CASCADE)
-    friend_id = models.ForeignKey(default=0, null=False, to='People', on_delete=models.CASCADE)
-

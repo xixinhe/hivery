@@ -29,7 +29,7 @@ class ApiConfig(AppConfig):
         #         food = people['favouriteFood']
         #         fruit = [a for a in food if a in fruits_list]
         #         vegetable = [a for a in food if a not in fruit]
-
+        #         print(people['friends'])
         #         People(
         #             people_id=people['_id'], 
         #             index=people['index'],
@@ -42,5 +42,6 @@ class ApiConfig(AppConfig):
         #             name=people['name'],
         #             company_id=people['company_id'],
         #             vegetable=vegetable,
-        #             fruit=fruit).save()
+        #             fruit=fruit,
+        #             friend='').save()
 
