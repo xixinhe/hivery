@@ -14,7 +14,7 @@ pip install -r requirements.txt
 - Put companies.json and people.json file under project root and run below commands in sequence
 
 ```
-python data_cleanse.py  
+python data_cleansing.py  
 python manage.py migrate  
 python manage.py makemigrations  
 python manage.py migrate --run-syncdb  
