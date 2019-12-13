@@ -31,7 +31,7 @@ python manage.py test api/test/
 ```
 
 ### API endpoints
-Note: company_index, people_index are the index field from companies.json and people.json accordingly
+**Note: company_index, people_index are the index field from companies.json and people.json accordingly**
 
 Your API must provides these end points:
 - Given a company, the API needs to return all their employees. Provide the appropriate solution if the company does not have any employees.
