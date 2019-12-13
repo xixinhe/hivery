@@ -9,12 +9,8 @@ class Company(models.Model):
         return f'Company{{company_id: {self.company_id}, name: {self.name}}}'
 
 class People(models.Model):
-    people_id = models.CharField(max_length=30)
-    index = models.AutoField(primary_key=True)
-    guid = models.CharField(max_length=100)
+    people_id = models.AutoField(primary_key=True)
     has_died = models.BooleanField(default=False)
-    balance = models.CharField(max_length=100, default=None, null=True)
-    picture = models.CharField(max_length=500, default=None, null=True)
     age = models.IntegerField(default=None, null=True)
     eye_color = models.CharField(max_length=20,default=None, null=True)
     name = models.CharField(max_length=100, default='')
@@ -27,12 +23,8 @@ class People(models.Model):
 
     def __str__(self):
         return (f'People{{people_id: {self.people_id}, '
-        f'index: {self.index},'
-        f'guid: {self.guid},'
         f'has_died: {self.has_died},'
-        f'balance: {self.balance},'
-        f'picture: {self.picture},'
-        f'eyeColor: {self.eyeColor},'
+        f'eye_color: {self.eye_color},'
         f'name: {self.name},'
         f'company_id: {self.company_id},'
         f'fruit: {self.fruit},'
