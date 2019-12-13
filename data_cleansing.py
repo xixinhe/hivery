@@ -12,9 +12,6 @@ with open('./api/fixtures/company_data.json', 'w') as companies_json:
 
 with open('people.json', 'r') as people_raw_json:
     people_raw_data = json.load(people_raw_json)
-    # people_data = [{'model': 'api.people', 'pk': a['index'], 'fields': {
-    #      'name': a['company'
-    #      ]}} for a in people_raw_data]
 
     people_data = []
     for people in people_raw_data:
